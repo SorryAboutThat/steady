@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: backup-monitor-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: backup-monitor
+    spec:
+      containers:
+        - image: dominiek/backup-monitor
+          imagePullPolicy: Always
+          name: main
+          env:
+            - name: GS_BUCKETS
+              value: "steady-staging-uploads steady-staging-mongodb-backups"
+            - name: POSTMARK_API_KEY
+              value: "abc"
+            - name: POSTMARK_FROM
+              value: "info@paylo.dev"
+            - name: EMAIL_ALERT
+              value: "info@paylo.dev"
+            - name: EMAIL_HEALTH_CHECK
+              value: "info@paylo.dev"
+            - name: ENVIRONMENT
+              value: "staging"

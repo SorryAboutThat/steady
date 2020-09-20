@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-cli-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-cli
+  template:
+    metadata:
+      labels:
+        app: api-cli
+    spec:
+      containers:
+        - image: gcr.io/steady/steady-services-api-cli
+          imagePullPolicy: Always
+          name: api-cli
+          env:
+            - name: NODE_ENV
+              value: "staging"
+            - name: MONGO_URI
+              value: "mongodb://mongo:27017/steady_staging"
+            - name: APP_DOMAIN
+              value: "paylo.dev"
+            - name: APP_URL
+              value: "https://paylo.dev"
+            - name: POSTMARK_FROM
+              value: "no-reply@paylo.dev"
+            - name: POSTMARK_APIKEY
+              value: "abc"
+            - name: UPLOADS_STORE
+              value: "gcs"
+            - name: UPLOADS_GCS_BUCKET
+              value: "steady-staging-uploads"
+          volumeMounts:
+            - name: jobs-cache
+              mountPath: /workdir/data
+      volumes:
+        - name: jobs-cache
+          emptyDir: {}

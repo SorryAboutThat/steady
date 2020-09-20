@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title><%= APP_NAME %></title>
+    <script src="https://browser.sentry-cdn.com/4.6.4/bundle.min.js" crossorigin="anonymous"></script>
+    <% if (GTM_CONTAINER_ID) { %>
+      <%= require('utils/analytics/head.html') %>
+    <% } %>
+    <!--env:conf-->
+  </head>
+  <body>
+    <% if (GTM_CONTAINER_ID) { %>
+      <%= require('utils/analytics/body.html') %>
+    <% } %>
+    <div style="height: 100%;" id="root"></div>
+  </body>
+</html>
