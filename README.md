@@ -1,32 +1,11 @@
-# steady Platform
+This project was generated with [Amplication](https://amplication.com)
 
-More documentation about specific services and components can be found in the following sections:
+It consists of two packages:
 
-- [deployment/](deployment/) - Provisioning, Deployment automation, how to's, playbooks and procedures
-- [services/api](services/api) - Data API and data model layer that powers all applications
-- [services/api-docs](services/api-docs) - API Documentation portal
-- [services/web](services/web) - Web application and administration dashboard
+### [Server](./server/README.md)
 
-## Quick Start
+### [Admin](./admin/README.md)
 
-Using Docker Compose you can build and run all services and dependencies as follows:
+### Learn more
 
-```bash
-docker-compose up
-```
-
-Open the dashboard at http://localhost:2200/ - Admin login credentials can be seen in the API output.
-
-### API Documentation
-
-Full portal with examples:
-
-http://localhost:2200/docs/getting-started
-
-Code documentation:
-
-[services/api](services/api)
-
-### Web Documentation
-
-[services/web](services/web)
+You can learn more in the [Amplication documentation](https://docs.amplication.com/guides/getting-started).

@@ -1,0 +1,2 @@
+class CalendarUpdateInput {}
+export { CalendarUpdateInput };
