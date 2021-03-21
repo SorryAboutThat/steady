@@ -1,6 +1,12 @@
-**/node_modules
-deployment
 .dockerignore
-.git
-.gitignore
-README.md
+docker-compose.yml
+Dockerfile
+admin/build/
+admin/node_modules/
+admin/.env
+admin/.gitignore
+server/dist/
+server/node_modules/
+server/.env
+server/.gitignore
+server/.prettierignore
